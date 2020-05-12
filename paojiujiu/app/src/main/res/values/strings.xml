@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">paojiujiu</string>
+    <string-array name="sex">
+        <item>男</item>
+        <item>女</item>
+        <item>未知</item>
+    </string-array>
+</resources>
