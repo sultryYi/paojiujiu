@@ -5,4 +5,20 @@
         <item>女</item>
         <item>未知</item>
     </string-array>
+    <string name="chinese_app_name">跑纠纠</string>
+    <string name="chinese_app_comment">跑步纠正助手</string>
+    <string name="follow_us">follow us on github</string>
+    <string name="sport">运动</string>
+    <string name="practise">训练</string>
+    <string name="mine">我的</string>
+    <string name="accumulate">累计次数</string>
+    <string name="times">次</string>
+    <string name="average_accuracy">平均正确率</string>
+    <string name="accuracy">正确率</string>
+    <string name="percent_sign">%</string>
+    <string name="level">等级</string>
+    <string name="start">开始检查</string>
+    <string name="last">持续时长</string>
+    <string name="exp">经验值</string>
+    <string name="key_point">跑姿动作要点</string>
 </resources>

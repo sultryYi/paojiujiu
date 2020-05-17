@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/sportActivityLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="60dp"
+            android:paddingBottom="2dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="10dp"
+            android:text="@string/accumulate"
+            android:textSize="22sp"
+            android:textColor="@android:color/black"/>
+
+        <LinearLayout
+            android:id="@+id/sportActivityLinearLayoutAccumulate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/sportActivityTextViewAccumulate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="30dp"
+                android:paddingEnd="10dp"
+                android:text="12"
+                android:textSize="64sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/times"
+                android:textSize="24sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="2dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="10dp"
+            android:text="@string/average_accuracy"
+            android:textSize="22sp"
+            android:textColor="@android:color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/sportActivityTextViewAccuracy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="30dp"
+                android:paddingEnd="10dp"
+                android:text="78"
+                android:textSize="64sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="0dp"
+                android:paddingEnd="10dp"
+                android:text="@string/percent_sign"
+                android:textSize="24sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="end"
+                android:layout_gravity="center">
+                <SeekBar
+                    android:id="@+id/sportActivitySeekBarAccuracy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="180dp"
+                    android:maxWidth="180dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="30dp"
+                    android:max="100"
+                    android:progress="78"
+                    android:thumb="@null"
+                    style="@style/CustomSeekBarAccuracyStyle"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="2dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="10dp"
+            android:text="@string/level"
+            android:textSize="22sp"
+            android:textColor="@android:color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/sportActivityTextViewLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="30dp"
+                android:paddingEnd="10dp"
+                android:text="4"
+                android:textSize="64sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="end"
+                android:layout_gravity="center">
+                <SeekBar
+                    android:id="@+id/sportActivitySeekBarLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="180dp"
+                    android:maxWidth="180dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="30dp"
+                    android:max="100"
+                    android:progress="66"
+                    android:thumb="@null"
+                    style="@style/CustomSeekBarLevelStyle"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@id/sportActivityRadioGroup"
+        android:layout_below="@+id/sportActivityLinearLayout">
+        <Button
+            android:id="@+id/runCorrect"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:background="@drawable/btn_circle_drawable"
+            android:text="@string/start"
+            android:textSize="28sp"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/sportActivityRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorCustomBackground"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/sportActivitySportTab"
+            android:checked="true"
+            android:drawableTop="@drawable/ic_sport"
+            android:text="@string/sport"
+            android:textColor="@color/colorGrayText"
+            android:textSize="18sp"
+            style="@style/Custom.TabRadioButton" />
+
+        <RadioButton
+            android:id="@+id/sportActivityPractiseTab"
+            android:drawableTop="@drawable/ic_practise"
+            android:text="@string/practise"
+            android:textColor="@color/colorGrayText"
+            android:textSize="18sp"
+            style="@style/Custom.TabRadioButton"/>
+
+        <RadioButton
+            android:id="@+id/sportActivityMineTab"
+            android:drawableTop="@drawable/ic_mine"
+            android:text="@string/mine"
+            android:textColor="@color/colorGrayText"
+            android:textSize="18sp"
+            style="@style/Custom.TabRadioButton" />
+    </RadioGroup>
+</RelativeLayout>

@@ -12,8 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".item"></activity>
-        <activity android:name=".RunHistory" />
         <activity android:name=".ChangeInfo"
             android:windowSoftInputMode="adjustResize"
             android:label="修改资料" >
@@ -34,14 +32,14 @@
             android:label="训练要点" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".PractiseActivity"/>
         </activity>
         <activity android:name=".RunPoints"
             android:windowSoftInputMode="adjustResize"
             android:label="跑姿要点" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".PractiseActivity"/>
         </activity>
         <activity android:name=".RunCorrect" />
         <activity android:name=".RunDetail"
@@ -49,15 +47,31 @@
             android:label="运动详细" >
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity"/>
+            android:value=".SportHistoryActivity"/>
         </activity>
-        <activity android:name=".Camera2RecordFinishActivity"/>
-        <activity android:name=".camera2library.camera.Camera2RecordActivity"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Camera2RecordFinishActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:label="拍摄结束" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SportActivity"/>
+        </activity>
+        <activity android:name=".camera2library.camera.Camera2RecordActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SportActivity" android:launchMode="singleTask"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".SportHistoryActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".PractiseActivity" android:launchMode="singleTask"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".MineActivity" android:launchMode="singleTask"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 </manifest>

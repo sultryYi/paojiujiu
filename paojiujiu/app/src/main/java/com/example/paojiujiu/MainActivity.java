@@ -1,56 +1,64 @@
 package com.example.paojiujiu;
+
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Message;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.view.Window;
+import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
 public class MainActivity extends AppCompatActivity {
+    Handler mHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button b1=findViewById(R.id.trainPoints);
-        b1.setOnClickListener(new View.OnClickListener() {
+        initStatusBar();
+        mHandler = new Handler(){
             @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,TrainPoints.class);
-                startActivity(intent);
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                if(msg.what == 0){
+                    Intent intent = new Intent(MainActivity.this, SportActivity.class);
+                    startActivity(intent);
+                }
+            }
+        };
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(500);
+                    Message msg = Message.obtain();
+                    msg.what = 0;
+                    mHandler.sendMessage(msg);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
-        Button b2=findViewById(R.id.runDetail);
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,RunDetail.class);
-                startActivity(intent);
-            }
-        });
-        Button b3=findViewById(R.id.runPoints);
-        b3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,RunPoints.class);
-                startActivity(intent);
-            }
-        });
-        Button b4=findViewById(R.id.medal);
-        b4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,MyMedal.class);
-                startActivity(intent);
-            }
-        });
-        Button b5=findViewById(R.id.changeInfo);
-        b5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,ChangeInfo.class);
-                startActivity(intent);
-            }
-        });
+        thread.start();
+    }
+
+    private void initStatusBar() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+                    | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            window.getDecorView()
+                    .setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
+            window.setNavigationBarColor(Color.TRANSPARENT);
+        }
     }
 }
