@@ -406,6 +406,7 @@ public class Camera2RecordActivity extends AppCompatActivity implements TextureV
                             Intent intent = new Intent(Camera2RecordActivity.this, Camera2Config.ACTIVITY_AFTER_CAPTURE);
                             intent.putExtra(Camera2Config.INTENT_PATH_SAVE_PIC, picSavePath);
                             startActivity(intent);
+                            finish();
                         }
                         break;
                 }

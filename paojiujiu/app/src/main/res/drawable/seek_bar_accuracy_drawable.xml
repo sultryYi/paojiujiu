@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--定义seekBar滑动条的底色-->
+    <item >
+        <shape>
+            <corners android:radius="5dp" />
+            <gradient
+                android:angle="270"
+                android:centerColor="@color/colorCustomBackground"
+                android:centerY="0.75"
+                android:endColor="@color/colorCustomBackground"
+                android:startColor="@color/colorCustomBackground" />
+        </shape>
+    </item>
+    <!--定义seekBar滑动条进度颜色-->
+    <item>
+        <clip>
+            <shape>
+                <corners android:radius="5dp"/>
+                <solid android:color="@color/colorAccuracy"/>
+            </shape>
+        </clip>
+    </item>
+</layer-list>
